@@ -6,6 +6,15 @@
   box-sizing: border-box;
 }
 
+
+header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
 body {
   font-family: "Roboto", sans-serif;
   background-color: beige;
@@ -25,3 +34,19 @@ article {
 article:hover {
   transform: scale(1.1);
 }
+footer{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    padding: 1rem;
+}
+
+/* (for the header searchbox )article {
+    transition: all 0.2s ease-in-out;
+  }
+  
+  article:hover {
+    transform: scale(1.1);
+  }*/
+   
+
