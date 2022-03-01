@@ -6,7 +6,9 @@
   box-sizing: border-box;
 }
 
-
+h1{
+    font-size: 3rem;
+}
 header{
     display: flex;
     flex-direction: column;
@@ -42,19 +44,12 @@ footer{
     padding: 1rem;
 }
 
-/* (for the header searchbox )article {
-    transition: all 0.2s ease-in-out;
-  }
   
-  article:hover {
-    transform: scale(1.1);
-  }*/
   .wrapper {
     position: relative;
     display: flex;
     min-width: 100px;
   }
-
   .search-icon {
     position: absolute;
     top: 6px;
@@ -71,11 +66,6 @@ footer{
     <!-- visibility: hidden; -->
   }
 
-
-
-
-
-
   .search {
     border: 1px solid grey;
     border-radius: 5px;
@@ -90,3 +80,4 @@ footer{
     border: 1.5px solid #009688;
     background-color: white;
   }
+  
