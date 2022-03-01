@@ -1,14 +1,28 @@
 "use strict";
 
+const allMarramiaus = [];
 const marramiausList = document.querySelector(".marramiaus");
 
-function appendMarramiaus(marramiaus) {
-  marramiaus.forEach((marramiau) => appendMarramiau(marramiau.username));
+function appendInitialMarramiaus(marramiaus) {
+  marramiaus.forEach((marramiau) => {
+    allMarramiaus.push(marramiau.username);
+    appendMarramiau(marramiau.username);
+  });
 }
 
-fetch("https://jsonplaceholder.typicode.com/users")
-  .then((response) => response.json())
-  .then((data) => appendMarramiaus(data));
+//removes the marramiaus elements
+function removeAllMarramiaus() {
+  while (marramiausList.firstChild) {
+    marramiausList.removeChild(marramiausList.firstChild);
+  }
+}
+
+function appendMarramiaus(marramiaus) {
+  removeAllMarramiaus();
+  marramiaus.forEach((marramiau) => {
+    appendMarramiau(marramiau);
+  });
+}
 
 function appendMarramiau(name) {
   const newArticle = document.createElement("article");
@@ -29,3 +43,25 @@ function appendMarramiau(name) {
 
   marramiausList.appendChild(newArticle);
 }
+
+fetch("https://jsonplaceholder.typicode.com/users")
+  .then((response) => response.json())
+  .then((data) => appendInitialMarramiaus(data));
+
+const input = document.querySelector(".search");
+
+//filter marramiaus
+const filterMarramiaus = (searchPredicate) => {
+  return allMarramiaus.filter(
+    (marramiau) =>
+      marramiau.toLowerCase().indexOf(searchPredicate.toLowerCase()) !== -1
+  );
+};
+
+function searchMarramiaus(event) {
+  const searchPredicate = event.target.value;
+  const filteredMarramiaus = filterMarramiaus(searchPredicate);
+  appendMarramiaus(filteredMarramiaus);
+}
+
+input.addEventListener("input", searchMarramiaus);
