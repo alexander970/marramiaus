@@ -29,6 +29,7 @@ section {
 
 article {
   transition: all 0.2s ease-in-out;
+  padding: 1rem;
 }
 
 article:hover {
