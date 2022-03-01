@@ -7,6 +7,14 @@
 }
 
 body{
+    
     font-family: 'Roboto', sans-serif;
     background-color: beige;
+}
+
+section{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
 }
