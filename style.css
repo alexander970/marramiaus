@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
 
 * {
   padding: 0;
@@ -10,6 +10,10 @@ h1 {
   font-size: 4rem;
 }
 
+h2 {
+  font-size: 3rem;
+}
+
 header {
   display: flex;
   flex-direction: column;
@@ -18,7 +22,7 @@ header {
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Dancing Script", cursive;
   background-color: beige;
 }
 
@@ -41,7 +45,7 @@ article:hover {
 }
 
 p {
-  font-size: 1.1rem;
+  font-size: 2rem;
 }
 
 footer {
