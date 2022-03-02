@@ -33,11 +33,17 @@ section {
 article {
   transition: all 0.2s ease-in-out;
   padding: 1rem;
+  text-align: center;
 }
 
 article:hover {
   transform: scale(1.1);
 }
+
+p {
+  font-size: 1.1rem;
+}
+
 footer {
   display: flex;
   flex-direction: column;

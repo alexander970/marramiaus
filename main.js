@@ -5,8 +5,11 @@ const marramiausList = document.querySelector(".marramiaus");
 
 function appendInitialMarramiaus(marramiaus) {
   marramiaus.forEach((marramiau) => {
-    allMarramiaus.push(marramiau.username);
-    appendMarramiau(marramiau.username);
+    allMarramiaus.push({
+      name: marramiau.username,
+      catchPhrase: marramiau.company.catchPhrase,
+    });
+    appendMarramiau(marramiau.username, marramiau.company.catchPhrase);
   });
 }
 
@@ -17,31 +20,36 @@ function removeAllMarramiaus() {
   }
 }
 
-function appendMarramiaus(marramiaus) {
+function appendSearchMarramiaus(marramiaus) {
   removeAllMarramiaus();
   marramiaus.forEach((marramiau) => {
-    appendMarramiau(marramiau);
+    appendMarramiau(marramiau.name, marramiau.catchPhrase);
   });
 }
 
-function appendMarramiau(name) {
-  const newArticle = document.createElement("article");
+function appendMarramiau(name, catchPhrase) {
+  const newMarramiau = document.createElement("article");
 
-  const newH2 = document.createElement("h2");
-  const newContent = document.createTextNode(name);
-  newH2.appendChild(newContent);
+  const newMarramiauName = document.createElement("h2");
+  const newMarramiauNameContent = document.createTextNode(name);
+  newMarramiauName.appendChild(newMarramiauNameContent);
 
-  const newImg = document.createElement("img");
-  newImg.setAttribute(
+  const newMarramiauImg = document.createElement("img");
+  newMarramiauImg.setAttribute(
     "src",
     `https://robohash.org/${name}?set=set4&size=150x150`
   );
-  newImg.setAttribute("alt", name);
+  newMarramiauImg.setAttribute("alt", name);
 
-  newArticle.appendChild(newH2);
-  newArticle.appendChild(newImg);
+  const newMarramiauCatchPhrase = document.createElement("p");
+  const newMarramiauCatchPhraseContent = document.createTextNode(catchPhrase);
+  newMarramiauCatchPhrase.appendChild(newMarramiauCatchPhraseContent);
 
-  marramiausList.appendChild(newArticle);
+  newMarramiau.appendChild(newMarramiauName);
+  newMarramiau.appendChild(newMarramiauImg);
+  newMarramiau.appendChild(newMarramiauCatchPhrase);
+
+  marramiausList.appendChild(newMarramiau);
 }
 
 fetch("https://jsonplaceholder.typicode.com/users")
@@ -54,14 +62,14 @@ const input = document.querySelector(".search");
 const filterMarramiaus = (searchPredicate) => {
   return allMarramiaus.filter(
     (marramiau) =>
-      marramiau.toLowerCase().indexOf(searchPredicate.toLowerCase()) !== -1
+      marramiau.name.toLowerCase().indexOf(searchPredicate.toLowerCase()) !== -1
   );
 };
 
 function searchMarramiaus(event) {
   const searchPredicate = event.target.value;
   const filteredMarramiaus = filterMarramiaus(searchPredicate);
-  appendMarramiaus(filteredMarramiaus);
+  appendSearchMarramiaus(filteredMarramiaus);
 }
 
 input.addEventListener("input", searchMarramiaus);
