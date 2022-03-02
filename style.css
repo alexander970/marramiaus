@@ -55,17 +55,18 @@ footer {
   position: relative;
   display: flex;
   min-width: 100px;
+  width: 90vw;
 }
 .search-icon {
   position: absolute;
-  top: 4px;
+  top: 9px;
   left: 8px;
   width: 16px;
 }
 
 .clear-icon {
   position: absolute;
-  top: 7px;
+  top: 12px;
   right: 8px;
   width: 13px;
   cursor: pointer;
@@ -74,7 +75,7 @@ footer {
 .search {
   border: 1px solid grey;
   border-radius: 5px;
-  height: 30px;
+  height: 40px;
   width: 100%;
   padding: 2px 23px 2px 30px;
   outline: 0;
@@ -120,5 +121,9 @@ footer {
   .marramiaus {
     align-content: flex-start;
     margin-top: 16px;
+  }
+
+  .wrapper {
+    width: 350px;
   }
 }
